@@ -1,4 +1,4 @@
-from enum_constants import str_enum, int_flag, int_enum
+from global_enum import str_enum, int_flag, int_enum
 from enum import STRICT
 
 THAT: str = "cool"

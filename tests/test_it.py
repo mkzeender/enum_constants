@@ -1,3 +1,4 @@
+import pytest
 from global_enum import str_enum, int_flag, int_enum
 from enum import STRICT
 
@@ -18,6 +19,24 @@ with int_flag(__name__, boundary=STRICT) as e:
 with int_enum(__name__) as e:
     INT1 = e.f()
     INT2 = e.f()
+
+
+def test_str_enum():
+    assert THIS == "this"
+    assert repr(IS) == __name__ + ".IS"
+    assert NICE == "niceee"
+
+
+def test_int_enum():
+    assert INT1 == 1
+    assert repr(INT2) == __name__ + ".INT2"
+
+
+def test_int_flag():
+    assert F1 == 0x1
+    assert F2 == 0x2
+    assert F3 == 0x8
+    assert F1 | F2 == 0x3
 
 
 print(repr(THIS), THIS)

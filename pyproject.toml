@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "global_enum"
+version = "0.1.0"
+authors = [
+  { name="Marckie Zeender", email="mkzeender@gmail.com" },
+]
+description = "A convenient way to make global constants using Enums"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+py-modules = ["global_enum"]
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+
+
+[project.urls]
+Homepage = "https://github.com/mkzeender/global_enum"
+Issues = "https://github.com/mkzeender/global_enum/issues"

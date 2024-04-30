@@ -1,5 +1,5 @@
 import enum
-from enum_constants.enum_factory import EnumFactory
+from .enum_factory import EnumFactory
 
 
 def enum_enum(module_name: str) -> EnumFactory[enum.Enum, object]:

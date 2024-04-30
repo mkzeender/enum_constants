@@ -1,19 +1,18 @@
 import enum
 from typing import Any, overload
 from .enum_factory import DecoratorList, EnumFactory
-from .protocols import Stringable, Intable
 
 
 @overload
 def define_enum[
     Enum: enum.StrEnum
-](module_name: str, enum_type: type[Enum], /) -> EnumFactory[Enum, Stringable]: ...
+](module_name: str, enum_type: type[Enum], /) -> EnumFactory[Enum, str]: ...
 
 
 @overload
 def define_enum[
     Enum: enum.IntEnum
-](module_name: str, enum_type: type[Enum], /) -> EnumFactory[Enum, Intable]: ...
+](module_name: str, enum_type: type[Enum], /) -> EnumFactory[Enum, int]: ...
 
 
 @overload
@@ -31,7 +30,7 @@ def define_enum[
 
 @overload
 def define_enum[
-    Enum: enum.Flag, DType: type[Intable]
+    Enum: enum.Flag, DType: type[int]
 ](
     module_name: str,
     enum_type: type[Enum],
@@ -53,7 +52,7 @@ def define_enum[
     *,
     boundary: enum.FlagBoundary = enum.KEEP,
     **kwds,
-) -> EnumFactory[Enum, Intable]: ...
+) -> EnumFactory[Enum, int]: ...
 
 
 @overload
@@ -64,23 +63,16 @@ def define_enum[
     enum_type: type[Enum],
     /,
     data_type: DType,
-    *,
-    boundary: enum.FlagBoundary = enum.KEEP,
     **kwds,
-) -> EnumFactory[Enum, DType]: ...
+) -> EnumFactory[
+    Enum, DType
+]: ...
 
 
 @overload
 def define_enum[
     Enum: enum.Enum
-](
-    module_name: str,
-    enum_type: type[Enum],
-    /,
-    *,
-    boundary: enum.FlagBoundary = enum.KEEP,
-    **kwds,
-) -> EnumFactory[Enum, object]: ...
+](module_name: str, enum_type: type[Enum], /, **kwds,) -> EnumFactory[Enum, object]: ...
 
 
 def define_enum(module_name, enum_type, /, data_type=object, **opts):

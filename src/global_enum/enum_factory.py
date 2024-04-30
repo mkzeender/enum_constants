@@ -4,7 +4,7 @@ import sys
 from functools import lru_cache
 from typing import Any, Callable, Iterable
 
-type DecoratorList[T: type] = Iterable[Callable[[T], T]]
+type DecoratorList[Enum: enum.Enum] = Iterable[Callable[[type[Enum]], type[Enum]]]
 
 
 class EnumFactory[Enum: enum.Enum, DType]:
@@ -12,7 +12,7 @@ class EnumFactory[Enum: enum.Enum, DType]:
         self,
         module_name: str,
         enum_cls: type[Enum],
-        decorators: DecoratorList[type[Enum]] = (),
+        decorators: DecoratorList[Enum] = (),
         ignore: Iterable[str] = (),
         **options: Any,
     ) -> None:

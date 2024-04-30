@@ -1,8 +1,5 @@
 from .enum_factory import EnumFactory
-from .convenience_old import (
-    enum_enum,
-    int_enum,
-    str_enum,
-    enum_flag,
-    int_flag,
-)
+from .convenience import define_enum
+
+
+__all__ = ("define_enum", "EnumFactory")

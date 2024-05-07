@@ -23,6 +23,7 @@ py-modules = ["global_enum"]
 pythonpath = "src"
 
 
+
 [project.urls]
 Homepage = "https://github.com/mkzeender/global_enum"
 Issues = "https://github.com/mkzeender/global_enum/issues"

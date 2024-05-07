@@ -1,6 +1,6 @@
 import enum
 from typing import Any, overload
-from .enum_factory import DecoratorList, EnumFactory
+from .enum_factory import EnumFactory
 
 
 @overload

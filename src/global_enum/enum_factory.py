@@ -56,7 +56,7 @@ class EnumFactory[Enum: enum.Enum, DType]:
                 namespace[k] = v
         if not success:
             raise RuntimeError(
-                "No fields detected! Make sure the fields are global constants."
+                f"No fields detected! Make sure the fields are global constants in the module {self.module_name}."
             )
 
         # create a subclass of self.enum_type
